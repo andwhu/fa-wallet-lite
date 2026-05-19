@@ -26,6 +26,7 @@ body {
 
 /* HEADER */
 .header {
+  height: 70px;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -34,21 +35,22 @@ body {
 }
 
 .header_log img {
-  width: 40px;
-  height: 40px;
+  max-height: 130px;     /* размер лого */
+  width: auto;
+  object-fit: contain;
   border-radius: 0.5rem;
 }
 
 #heading {
   text-align: center;
   margin: 2em;
-  color: rgb(0, 255, 200);
+  color: rgb(255, 255, 200);
   font-size: 1.2em;
 }
 
 .header_network p {
-  border: 1px solid #00642f;
-  color: #00642f;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -77,7 +79,7 @@ body {
 
 .network_title {
   font-size: 1.3rem;
-  border: 1px solid rgb(0, 255, 200);
+  border: 1px solid #2C7276;
 }
 
 .network_item {
@@ -130,7 +132,7 @@ body {
 .home_header p,
 .home_screen_login p,
 .home_screen_signup p {
-  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-image: linear-gradient(163deg, #4dc6c5 0%, #193D57 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -247,7 +249,7 @@ body {
   border: none;
   outline: none;
   transition: 0.4s ease-in-out;
-  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-image: linear-gradient(163deg, #4dc6c5 0%, #193D57 100%);
   color: rgb(0, 0, 0);
 }
 
@@ -257,7 +259,7 @@ body {
 }
 
 .card {
-  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  background-image: linear-gradient(163deg, #4dc6c5 0%, #193D57 100%);
   /* border-radius: 22px; */
   transition: all 0.3s;
 }
@@ -402,7 +404,7 @@ textarea {
 
 .home {
   margin: 0 auto;
-  background-color: #171717;
+  background-color: #FFFFFF;
   text-align: center;
   padding: 1rem 2rem;
   display: none;
@@ -416,8 +418,8 @@ textarea {
 
 .home_header_img {
   margin-top: 1rem;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 
 .home_features {
@@ -434,7 +436,7 @@ textarea {
 
 .home_feature_item > p {
   line-height: 0;
-  color: #00ff75;
+  color: #0098AF;
 }
 
 .home_tabs {
