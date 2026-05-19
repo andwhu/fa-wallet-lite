@@ -1,4 +1,4 @@
-@font-face {
+@@font-face {
   font-family: "Open Sans";
   src: url("./fonts/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
@@ -10,11 +10,6 @@
   src: url("./fonts/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
 }
 /* //BODY */
 body {
@@ -501,8 +496,12 @@ textarea {
   align-items: center;
 }
 
+body {
+  font-weight: 400 !important;
+}
+
 #accountBlance {
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
 #selected_network {
