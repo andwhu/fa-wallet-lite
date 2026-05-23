@@ -188,6 +188,9 @@
           <button id="openCreate" class="button3 connectWallet">
             Create Account
           </button>
+          <button id="openRestore" class="button3 connectWallet">
+            Restore Wallet
+          </button>
           <p>
             Login to your account
             <strong class="home_title" id="loginAccount"> LOGIN</strong>
@@ -321,6 +324,39 @@
           </div>
         </div>
 
+        <!-- //RESTORE WALLET -->
+<div id="restore_wallet" class="create_popUp" style="display:none;">
+  <div class="form">
+    <p class="heading">Restore Wallet</p>
+
+    <p style="margin-top:10px;">Seed phrase (12/24 words)</p>
+    <textarea
+      id="restore_mnemonic"
+      placeholder="enter seed phrase..."
+      style="width:100%; height:80px; resize:none;"
+    ></textarea>
+    <button id="restore_mnemonic_btn" class="button3 connectWallet" style="margin-top:10px;">
+      Restore by Seed Phrase
+    </button>
+
+    <p style="margin-top:16px;">Private key</p>
+    <input
+      id="restore_private_key"
+      type="text"
+      placeholder="0x..."
+      class="input-field"
+      style="width:100%;"
+    />
+    <button id="restore_privatekey_btn" class="button3 connectWallet" style="margin-top:10px;">
+      Restore by Private Key
+    </button>
+
+    <button id="restore_cancel" class="button3 addStyle" style="margin-top:16px;">
+      Cancel
+    </button>
+  </div>
+</div>
+        
         <!-- //LOGIN COMPONENT -->
         <div id="LoginUser" class="home_screen_login">
           <img
