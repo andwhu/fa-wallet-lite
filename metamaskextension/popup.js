@@ -3,17 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("userAddress").addEventListener("click", copyAddress);
   document.getElementById("transferFund").addEventListener("click", handler);
 
-  const openRestoreBtn = document.getElementById("openRestore");
-if (openRestoreBtn) openRestoreBtn.addEventListener("click", openRestore);
+    const openRestoreBtn = document.getElementById("openRestore");
+  if (openRestoreBtn) openRestoreBtn.addEventListener("click", openRestore);
 
-const restoreCancelBtn = document.getElementById("restore_cancel");
-if (restoreCancelBtn) restoreCancelBtn.addEventListener("click", closeRestore);
+  const restoreCancelBtn = document.getElementById("restore_cancel");
+  if (restoreCancelBtn) restoreCancelBtn.addEventListener("click", closeRestore);
 
-const restoreMnemonicBtn = document.getElementById("restore_mnemonic_btn");
-if (restoreMnemonicBtn) restoreMnemonicBtn.addEventListener("click", restoreByMnemonic);
+  const restoreMnemonicBtn = document.getElementById("restore_mnemonic_btn");
+  if (restoreMnemonicBtn) restoreMnemonicBtn.addEventListener("click", restoreByMnemonic);
 
-const restorePkBtn = document.getElementById("restore_privatekey_btn");
-if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
+  const restorePkBtn = document.getElementById("restore_privatekey_btn");
+  if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
 
   document
     .getElementById("header_network")
@@ -116,12 +116,21 @@ function handler() {
   var a = document.getElementById("link");
   a.href = "somelink url";
 
-  wallet.sendTransaction(tx).then((txObj) => {
+  wallet.sendTransaction(tx)
+  .then((txObj) => {
     console.log("txHash", txObj.hash);
+
     document.getElementById("transfer_center").style.display = "none";
+
     const a = document.getElementById("link");
-    a.href = `https://amoy.polygonscan.com/tx/${txObj.hash}`;
+    // ссылка на explorer finchainlab (проверьте формат, ниже дам вариант)
+    a.href = `https://explorer.finchainlab.ru/tx/${txObj.hash}`;
     document.getElementById("link").style.display = "block";
+  })
+  .catch((err) => {
+    console.error("Send tx error:", err);
+    document.getElementById("transfer_center").style.display = "none";
+    alert(err?.message || "Transaction failed");
   });
 }
 
@@ -185,25 +194,14 @@ function loginUser() {
 }
 
 function openRestore() {
+  document.getElementById("createAccount").style.display = "none";
+  document.getElementById("LoginUser").style.display = "none";
   document.getElementById("restore_wallet").style.display = "block";
-
-  // прячем другие экраны (чтобы не мешали кликам и не просвечивали)
-  const createAccount = document.getElementById("createAccount");
-  if (createAccount) createAccount.style.display = "none";
-
-  const loginUser = document.getElementById("LoginUser");
-  if (loginUser) loginUser.style.display = "none";
-
-  const home = document.getElementById("home");
-  if (home) home.style.display = "none";
 }
 
 function closeRestore() {
   document.getElementById("restore_wallet").style.display = "none";
-
-  // возвращаем стартовый экран
-  const createAccount = document.getElementById("createAccount");
-  if (createAccount) createAccount.style.display = "block";
+  document.getElementById("createAccount").style.display = "block";
 }
 
 function restoreByMnemonic() {
