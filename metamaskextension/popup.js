@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("userAddress").addEventListener("click", copyAddress);
   document.getElementById("transferFund").addEventListener("click", handler);
 
+  document.getElementById("openRestore").addEventListener("click", openRestore);
+  document.getElementById("restore_cancel").addEventListener("click", closeRestore);
+
   document
     .getElementById("header_network")
     .addEventListener("click", getOpenNetwork);
@@ -170,6 +173,60 @@ function setNetwork() {
 function loginUser() {
   document.getElementById("createAccount").style.display = "none";
   document.getElementById("LoginUser").style.display = "block";
+}
+
+function openRestore() {
+  document.getElementById("createAccount").style.display = "none";
+  document.getElementById("LoginUser").style.display = "none";
+  document.getElementById("restore_wallet").style.display = "block";
+}
+
+function closeRestore() {
+  document.getElementById("restore_wallet").style.display = "none";
+  document.getElementById("createAccount").style.display = "block";
+}
+
+function restoreByMnemonic() {
+  const phrase = document.getElementById("restore_mnemonic").value.trim();
+
+  try {
+    // ethers v5:
+    const wallet = ethers.Wallet.fromMnemonic(phrase);
+
+    const userWallet = {
+      address: wallet.address,
+      private_key: wallet.privateKey,
+      mnemonic: phrase,
+    };
+
+    localStorage.setItem("userWallet", JSON.stringify(userWallet));
+    window.location.reload();
+  } catch (e) {
+    alert("Seed phrase неверная. Проверьте слова и пробелы.");
+    console.error(e);
+  }
+}
+
+function restoreByPrivateKey() {
+  let pk = document.getElementById("restore_private_key").value.trim();
+
+  if (pk && !pk.startsWith("0x")) pk = "0x" + pk;
+
+  try {
+    const wallet = new ethers.Wallet(pk);
+
+    const userWallet = {
+      address: wallet.address,
+      private_key: wallet.privateKey,
+      mnemonic: "",
+    };
+
+    localStorage.setItem("userWallet", JSON.stringify(userWallet));
+    window.location.reload();
+  } catch (e) {
+    alert("Private key неверный. Обычно это 64 hex символа (часто с 0x).");
+    console.error(e);
+  }
 }
 
 function createUser() {
