@@ -67,7 +67,7 @@ const ETHEREUM = "https://rpc.ankr.com/eth";
 const SEPOLIA_TEST = "https://rpc.ankr.com/eth_sepolia";
 const FINCHAINLAB = "https://rpc.finchainlab.ru";
 
-let providerURL = "https://explorer.finchainlab.ru";
+let providerURL = FINCHAINLAB;
 
 const allToken = [
   {
@@ -156,7 +156,7 @@ function getSelectedNetwork(e) {
     document.getElementById("network").style.display = "none";
   } else if (e.target.innerHTML === "Finchainlab") {
     providerURL = FINCHAINLAB;
-    localStorage.setItem("ACTIVENET_WORK", "Finchainlab");
+    localStorage.setItem("ACTIVE_NETWORK", "Finchainlab");
     document.getElementById("network").style.display = "none";
   }
 
@@ -329,6 +329,19 @@ function addAcount() {
 function myFunction() {
   const str = localStorage.getItem("userWallet");
   const parsedObj = JSON.parse(str);
+
+  // Restore selected network (default: Finchainlab)
+const savedNetwork = localStorage.getItem("ACTIVE_NETWORK") || "Finchainlab";
+
+if (savedNetwork === "Finchainlab") providerURL = FINCHAINLAB;
+else if (savedNetwork === "Polygon Amoy") providerURL = POLYGON_AMOY;
+else if (savedNetwork === "Polygon Mainnet") providerURL = POLYGON;
+else if (savedNetwork === "Ethereum Mainnet") providerURL = ETHEREUM;
+else if (savedNetwork === "Sepolia test network") providerURL = SEPOLIA_TEST;
+
+// Update header label
+const networkEl = document.getElementById("selected_network");
+if (networkEl) networkEl.innerHTML = savedNetwork;
 
   if (parsedObj?.address) {
     document.getElementById("LoginUser").style.display = "none";
