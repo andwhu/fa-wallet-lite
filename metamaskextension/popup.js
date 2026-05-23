@@ -3,8 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("userAddress").addEventListener("click", copyAddress);
   document.getElementById("transferFund").addEventListener("click", handler);
 
-  document.getElementById("openRestore").addEventListener("click", openRestore);
-  document.getElementById("restore_cancel").addEventListener("click", closeRestore);
+  const openRestoreBtn = document.getElementById("openRestore");
+if (openRestoreBtn) openRestoreBtn.addEventListener("click", openRestore);
+
+const restoreCancelBtn = document.getElementById("restore_cancel");
+if (restoreCancelBtn) restoreCancelBtn.addEventListener("click", closeRestore);
+
+const restoreMnemonicBtn = document.getElementById("restore_mnemonic_btn");
+if (restoreMnemonicBtn) restoreMnemonicBtn.addEventListener("click", restoreByMnemonic);
+
+const restorePkBtn = document.getElementById("restore_privatekey_btn");
+if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
 
   document
     .getElementById("header_network")
@@ -176,21 +185,31 @@ function loginUser() {
 }
 
 function openRestore() {
-  document.getElementById("createAccount").style.display = "none";
-  document.getElementById("LoginUser").style.display = "none";
   document.getElementById("restore_wallet").style.display = "block";
+
+  // прячем другие экраны (чтобы не мешали кликам и не просвечивали)
+  const createAccount = document.getElementById("createAccount");
+  if (createAccount) createAccount.style.display = "none";
+
+  const loginUser = document.getElementById("LoginUser");
+  if (loginUser) loginUser.style.display = "none";
+
+  const home = document.getElementById("home");
+  if (home) home.style.display = "none";
 }
 
 function closeRestore() {
   document.getElementById("restore_wallet").style.display = "none";
-  document.getElementById("createAccount").style.display = "block";
+
+  // возвращаем стартовый экран
+  const createAccount = document.getElementById("createAccount");
+  if (createAccount) createAccount.style.display = "block";
 }
 
 function restoreByMnemonic() {
   const phrase = document.getElementById("restore_mnemonic").value.trim();
 
   try {
-    // ethers v5:
     const wallet = ethers.Wallet.fromMnemonic(phrase);
 
     const userWallet = {
@@ -209,7 +228,6 @@ function restoreByMnemonic() {
 
 function restoreByPrivateKey() {
   let pk = document.getElementById("restore_private_key").value.trim();
-
   if (pk && !pk.startsWith("0x")) pk = "0x" + pk;
 
   try {
