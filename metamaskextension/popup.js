@@ -80,6 +80,14 @@ if (togglePassword) {
     input.type = input.type === "password" ? "text" : "password";
   });
 }
+
+const network = document.getElementById("network");
+if (network) {
+  network.addEventListener("click", (e) => {
+    // клик по тёмному фону — закрыть
+    if (e.target === network) network.style.display = "none";
+  });
+}
 });
 
 //NETWORKS RPC URL
