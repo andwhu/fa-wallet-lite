@@ -70,6 +70,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("add_New_Account")
     .addEventListener("click", addAcount);
+
+    const togglePassword = document.getElementById("toggle_password");
+if (togglePassword) {
+  togglePassword.addEventListener("click", (e) => {
+    e.preventDefault();
+    const input = document.getElementById("login_password");
+    if (!input) return;
+    input.type = input.type === "password" ? "text" : "password";
+  });
+}
 });
 
 //NETWORKS RPC URL
