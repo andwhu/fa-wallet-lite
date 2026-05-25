@@ -13,13 +13,13 @@
 }
 /* //BODY */
 body {
-  width: 22rem;
+  width: 420px;
+  min-height: 600px;
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  background: #f4f7fb;
 }
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -49,16 +49,18 @@ body {
 }
 
 .header_network p {
-  border: 1px solid #FFFFFF;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border: 1px solid #E0E5EC;
+  color: #0097AE;
+  font-weight: 600;
+   padding: 8px 10px;
+  border-radius: 999px;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.3rem;
+  gap: 8px;
+
   cursor: pointer;
+  background: #ffffff;
 }
 /* //NETWORK */
 
@@ -259,23 +261,31 @@ body {
 }
 
 .card {
-  background-image: linear-gradient(163deg, #4dc6c5 0%, #193D57 100%);
-  /* border-radius: 22px; */
-  transition: all 0.3s;
+  background: transparent;
+  padding: 12px;
+  min-height: 600px
 }
 
 .card2 {
-  border-radius: 0;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;      /* чтобы шапка/картинки не вылезали */
+  box-shadow: 0 14px 40px rgba(16, 24, 40, 0.12);
   transition: all 0.2s;
+  min-height: 575px
+}
+
+.auth_screen {
+  min-height: 600px;
 }
 
 .card2:hover {
-  transform: scale(0.98);
-  border-radius: 20px;
+  transform: none;
+  border-radius: 18px;
 }
 
 .card:hover {
-  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+  box-shadow: none;
 }
 
 /* notification */
@@ -539,4 +549,187 @@ body {
   box-sizing: border-box;
 }
 
+
+/* HEADER override (force) */
+.card .card2 .header{
+  padding: 6px 12px !important;
+  gap: 8px !important;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.card .card2 .header_log img{
+  width: 140px !important;
+  height: auto !important;
+}
+
+.net_icon{
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+
+/* === AUTH (LOGIN) SCREEN === */
+.auth_screen{
+  display: block;
+  background: #ffffff;
+}
+
+.auth_hero{
+  position: relative;
+  height: 240px;              /* высота верхнего баннера */
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* лёгкая “волна/точки” фоном, без полосы */
+.auth_hero{
+  background-image:
+    radial-gradient(circle at 85% 40%, rgba(10,162,176,0.16), transparent 45%),
+    radial-gradient(circle at 78% 55%, rgba(10,162,176,0.10), transparent 40%);
+}
+
+/* FA слева */
+.auth_logo{
+  position: absolute;
+  left: 16px;
+  top: 30px;                  /* подберите 70–90 */
+  width: 180px;               /* 230–280 */
+  height: auto;
+}
+
+/* маскот справа */
+.auth_mascot{
+  position: absolute;
+  right: 12px;
+  top: 30px;                  /* подберите 45–65 */
+  width: 250px;               /* 170–210 */
+  height: auto;
+}
+
+.auth_content{
+  padding: 12px 16px 18px;
+  padding-top: 18px;
+}
+
+.auth_tag{
+  color: #0aa2b0;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.auth_title{
+  margin: 0;
+  font-size: 26px;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.auth_subtitle{
+  margin: 8px 0 14px;
+  color: #64748b;
+  text-align: left;
+}
+
+.auth_form{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.auth_field{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #e6edf5;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 12px;
+}
+
+.auth_icon{
+  width: 22px;
+  display: inline-flex;
+  justify-content: center;
+  color: #0aa2b0;
+}
+
+.auth_input{
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #0f172a;
+  background: transparent;
+}
+
+.auth_eye{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.btn_primary{
+  width: 100%;
+  padding: 14px 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0aa2b0 0%, #0b7285 100%);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+
+.btn_secondary{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid #0aa2b0;
+  background: #ffffff;
+  color: #0b7285;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+
+.auth_or{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.auth_or span{
+  height: 1px;
+  background: #e6edf5;
+  flex: 1;
+}
+
+.auth_or p{
+  margin: 0;
+  color: #94a3b8;
+}
+
+.auth_bottom{
+  margin-top: 12px;
+  color: #64748b;
+}
+
+.auth_link{
+  color: #0aa2b0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.auth_icon_img{
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  flex: 0 0 18px;
+  opacity: 0.9;
+}
 /* //CHECK BOX */
