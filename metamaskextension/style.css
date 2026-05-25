@@ -263,7 +263,7 @@ body {
 .card {
   background: transparent;
   padding: 12px;
-  min-height: 600px
+  min-height: 570px
 }
 
 .card2 {
@@ -276,7 +276,7 @@ body {
 }
 
 .auth_screen {
-  min-height: 600px;
+  min-height: 540px;
 }
 
 .card2:hover {
@@ -593,7 +593,7 @@ body {
 .auth_logo{
   position: absolute;
   left: 16px;
-  top: 30px;                  /* подберите 70–90 */
+  top: 10px;                  /* подберите 70–90 */
   width: 180px;               /* 230–280 */
   height: auto;
 }
@@ -602,7 +602,7 @@ body {
 .auth_mascot{
   position: absolute;
   right: 12px;
-  top: 30px;                  /* подберите 45–65 */
+  top: 10px;                  /* подберите 45–65 */
   width: 250px;               /* 170–210 */
   height: auto;
 }
@@ -622,7 +622,7 @@ body {
   margin: 0;
   font-size: 26px;
   color: #0f172a;
-  line-height: 1.2;
+  line-height: 2.5;
 }
 
 .auth_subtitle{
@@ -732,4 +732,105 @@ body {
   flex: 0 0 18px;
   opacity: 0.9;
 }
+
+/* ===== Network overlay modal (v1) ===== */
+#network.network{
+  display: none;
+  position: fixed !important;
+  inset: 0;                 /* top/right/bottom/left = 0 */
+  z-index: 99999;
+
+  background: rgba(15, 23, 42, 0.55);
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* белая карточка внутри overlay */
+#network.network .network_title{
+  margin-top: 64px;         /* чтобы визуально “не спорить” с header */
+  background: #fff;
+  border: none;
+  border-radius: 16px 16px 0 0;
+  padding: 14px 14px;
+}
+
+#network.network .network_title p{
+  margin: 0;
+  text-align: left;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+/* список сетей */
+#network.network .network_list{
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  padding: 6px 0;
+  max-height: calc(100vh - 210px);
+  overflow: auto;
+}
+
+/* строка сети */
+#network.network .network_item{
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #eef2f7;
+  text-align: left;
+}
+
+#network.network .network_item:last-child{
+  border-bottom: none;
+}
+
+#network.network .network_item span{
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* иконки внутри network (чтобы были аккуратные) */
+#network.network .input-icon{
+  width: 18px;
+  height: 18px;
+  fill: #0aa2b0;
+}
+
+/* кнопка Add Network */
+#network.network #add_network{
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 16px;
+}
+
+.auth_content{ transform: translateY(-45px); }
+
+/* Popup must not scroll */
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 580px;           /* подберите: 620–700 */
+  overflow: hidden !important;
+}
+
+/* Restore grey frame around the white card */
+body{
+  background: #f4f7fb !important;  /* серый фон рамки */
+}
+
+.card{
+  height: 100%;
+  padding: 10px !important;        /* толщина рамки сверху/снизу */
+  background: transparent !important;
+  box-sizing: border-box;
+}
+
+.card2{
+  height: 100%;
+  background: #ffffff !important;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(16, 24, 40, 0.10);
+}
+
 /* //CHECK BOX */
