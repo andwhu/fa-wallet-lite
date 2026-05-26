@@ -225,6 +225,12 @@
     <button id="sign_up" class="btn_primary">СОЗДАТЬ</button>
     <button id="back_to_login" class="btn_secondary1">НАЗАД</button>
 
+    <div id="accountData" class="accountData" style="display:none;">
+  <p><strong>Address:</strong> <span id="createdAddress"></span></p>
+  <p><strong>Private key:</strong> <span id="createdPrivateKey"></span></p>
+  <p><strong>Seed phrase:</strong> <span id="createdMnmonic"></span></p>
+</div>
+
     <!-- если хотите оставить блок с данными — можно ниже -->
     <div id="accountData" class="accountData"></div>
   </div>
@@ -280,214 +286,132 @@
   </div>
 </div>
 
-        <!-- //TRANSFER COMPONENT -->
-        <div id="transfer_form" class="transfer_form">
-          <div class="form">
-            <img
-              id="goBack"
-              class="goBack"
-              src="./assets/arrowleft.png"
-              alt=""
-            />
-            <p id="heading">Transfer Funds</p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
-              <input
-                type="number"
-                class="input-field"
-                placeholder="amount"
-                id="amount"
-              />
-            </div>
-            <p class="space"></p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
+        <!-- //TRANSFER (light) -->
+<div id="transfer_form" class="auth_screen" style="display:none;">
+  <div class="auth_content">
 
-              <input
-                type="text"
-                class="input-field"
-                placeholder="Transfer address"
-                id="address"
-              />
-            </div>
+    <button id="goBack" type="button" class="btn_back" aria-label="Назад">←</button>
 
-            <div id="transfer_center" class="center">
-              <div class="loader">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <div class="bar4"></div>
-                <div class="bar5"></div>
-                <div class="bar6"></div>
-                <div class="bar7"></div>
-                <div class="bar8"></div>
-                <div class="bar9"></div>
-                <div class="bar10"></div>
-                <div class="bar11"></div>
-                <div class="bar12"></div>
-              </div>
-            </div>
+    <h1 class="auth_title">Перевод</h1>
 
-            <small>
-              <a target="_blank" id="link" href="">
-                Check Your Transaction
-              </a></small
-            >
+    <div class="auth_form">
+      <label class="auth_field">
+        <img class="auth_icon_img" src="./assets/icon_lock.png" alt="" />
+        <input
+          id="amount"
+          type="number"
+          class="auth_input"
+          placeholder="Сумма"
+        />
+      </label>
 
-            <button id="transferFund" class="button3 connectWallet">
-              Transfer
-            </button>
-          </div>
-        </div>
+      <label class="auth_field">
+        <img class="auth_icon_img" src="./assets/icon_user.png" alt="" />
+        <input
+          id="address"
+          type="text"
+          class="auth_input"
+          placeholder="Адрес получателя"
+        />
+      </label>
+    </div>
 
-        <!-- //IMPORT COMPONENT -->
-        <div id="import_token" class="import_token">
-          <div class="form">
-            <img
-              id="goBack_import"
-              class="goBack"
-              src="./assets/arrowleft.png"
-              alt=""
-            />
-            <p id="heading">Import Token</p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
-              <input
-                type="text"
-                class="input-field"
-                placeholder="token_address"
-                id="token_address"
-              />
-            </div>
-            <p class="space"></p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
+    <div id="transfer_center" class="center">
+      <div class="loader">
+        <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
+        <div class="bar4"></div><div class="bar5"></div><div class="bar6"></div>
+        <div class="bar7"></div><div class="bar8"></div><div class="bar9"></div>
+        <div class="bar10"></div><div class="bar11"></div><div class="bar12"></div>
+      </div>
+    </div>
 
-              <input
-                type="text"
-                class="input-field"
-                placeholder="token name"
-                id="token_name"
-              />
-            </div>
-            <p class="space"></p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
+    <button id="transferFund" class="btn_primary">ПЕРЕВЕСТИ</button>
 
-              <input
-                type="text"
-                class="input-field"
-                placeholder="token symbol"
-                id="token_symbol"
-              />
-            </div>
+    <small style="display:block; margin-top:10px;">
+      <a target="_blank" id="link" href="" style="display:none;">
+        Посмотреть транзакцию
+      </a>
+    </small>
 
-            <button id="add_new_token" class="button3 connectWallet">
-              Import
-            </button>
-          </div>
-        </div>
+  </div>
+</div>
 
-        <!-- IMPORT ACCOUNT -->
-        <div id="import_account" class="import_account">
-          <div class="form">
-            <img
-              id="close_import_account"
-              class="goBack"
-              src="./assets/arrowleft.png"
-              alt=""
-            />
-            <p id="heading">Import Account</p>
-            <div class="field">
-              <svg
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                height="16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-                class="input-icon"
-              >
-                <path
-                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                ></path>
-              </svg>
-              <textarea
-                type="text"
-                class="input-field"
-                placeholder="private key"
-                id="add_account_private_key"
-                name=""
-                cols="30"
-                rows="5"
-              ></textarea>
-            </div>
+        <!-- //IMPORT TOKEN (light) -->
+<div id="import_token" class="auth_screen" style="display:none;">
+  <div class="auth_content">
 
-            <button id="add_New_Account" class="button3 connectWallet">
-              Import
-            </button>
-            <div class="accountList" id="accountList">
-              <!-- <div class="lists">
-                <p>1</p>
-                <p>sdhsgsdhsds8343433...</p>
-              </div> -->
-            </div>
-          </div>
-        </div>
+    <!-- кнопка назад -->
+    <button id="goBack_import" type="button" class="btn_back" aria-label="Назад">
+      ←
+    </button>
+
+    <h1 class="auth_title">Импорт токена</h1>
+
+    <div class="auth_form">
+      <label class="auth_field">
+        <img class="auth_icon_img" src="./assets/icon_lock.png" alt="" />
+        <input
+          id="token_address"
+          type="text"
+          class="auth_input"
+          placeholder="Token address"
+        />
+      </label>
+
+      <label class="auth_field">
+        <img class="auth_icon_img" src="./assets/icon_user.png" alt="" />
+        <input
+          id="token_name"
+          type="text"
+          class="auth_input"
+          placeholder="Token name"
+        />
+      </label>
+
+      <label class="auth_field">
+        <img class="auth_icon_img" src="./assets/icon_mail.png" alt="" />
+        <input
+          id="token_symbol"
+          type="text"
+          class="auth_input"
+          placeholder="Token symbol"
+        />
+      </label>
+    </div>
+
+    <button id="add_new_token" class="btn_primary">ИМПОРТ</button>
+  </div>
+</div>
+
+        <!-- IMPORT ACCOUNT (light) -->
+<div id="import_account" class="auth_screen" style="display:none;">
+  <div class="auth_content">
+
+    <button id="close_import_account" type="button" class="btn_back" aria-label="Назад">
+      ←
+    </button>
+
+    <h1 class="auth_title">Импорт аккаунта</h1>
+
+    <p class="auth_subtitle">Private key</p>
+
+    <label class="auth_field">
+      <img class="auth_icon_img" src="./assets/icon_lock.png" alt="" />
+      <textarea
+        id="add_account_private_key"
+        class="auth_input"
+        placeholder="0x..."
+        rows="4"
+        style="resize:none;"
+      ></textarea>
+    </label>
+
+    <button id="add_New_Account" class="btn_primary">ИМПОРТ</button>
+
+    <!-- список аккаунтов оставляем -->
+    <div class="accountList" id="accountList"></div>
+  </div>
+</div>
 
         <!-- //MAIN BODY -->
         <div id="home" class="home">
@@ -501,10 +425,10 @@
           </div>
           <img
             class="home_header_img"
-            src="./assets/logomini.png"
+            src="./assets/fa_logo.png"
             alt=""
           />
-          <h1 id="accountBlance">0.00 MATIC</h1>
+          <h1 id="accountBlance">0.00 FA</h1>
 
           <div class="home_features">
             <div class="home_feature_item">
@@ -540,7 +464,7 @@
             <div class="assets_item">
               <img
                 class="assets_item_img"
-                src="./assets/theblockchaincoders.png"
+                src="./assets/fa_logo.png"
                 alt=""
               />
 
@@ -551,7 +475,7 @@
             <div class="assets_item">
               <img
                 class="assets_item_img"
-                src="./assets/theblockchaincoders.png"
+                src="./assets/fa_logo.png"
                 alt=""
               />
 
