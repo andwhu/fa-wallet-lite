@@ -833,4 +833,97 @@ body{
   box-shadow: 0 14px 40px rgba(16, 24, 40, 0.10);
 }
 
+/* ===== Networks overlay — light design ===== */
+#network.network{
+  /* overlay */
+  position: fixed !important;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+
+  background: rgba(17, 24, 39, 0.55);
+  padding: 14px;
+  box-sizing: border-box;
+
+  /* layout */
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* белая карточка со списком */
+#network.network .network_title,
+#network.network .network_list{
+  background: #fff;
+  border: 1px solid #e6edf5;
+}
+
+#network.network .network_title{
+  border-radius: 18px 18px 0 0;
+  padding: 16px 18px;
+  border-bottom: none;
+}
+
+#network.network .network_title p{
+  margin: 0;
+  text-align: left;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* список */
+#network.network .network_list{
+  border-radius: 0 0 18px 18px;
+  padding: 0;
+  overflow: auto;
+  max-height: 340px;            /* под popup */
+}
+
+/* строка сети */
+#network.network .network_item{
+  margin: 0;
+  padding: 18px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid #eef2f7;
+}
+
+#network.network .network_item:last-child{
+  border-bottom: none;
+}
+
+#network.network .network_item span{
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* иконка-замок */
+#network.network .input-icon{
+  width: 20px;
+  height: 20px;
+  fill: #0aa2b0;
+  flex: 0 0 20px;
+}
+
+/* кнопка Add Network как ваша основная */
+#network.network #add_network{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(180deg, #69c7c4, #0b6b78);
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* важно: когда вы показываете network через JS, включаем flex */
+#network.network.is-open{
+  display: flex !important;
+}
+
 /* //CHECK BOX */
