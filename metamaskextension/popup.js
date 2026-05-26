@@ -1,9 +1,24 @@
 // Pure JS:
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("userAddress").addEventListener("click", copyAddress);
-  document.getElementById("transferFund").addEventListener("click", handler);
+  // --- LOGIN: show/hide password (eye) ---
+  const togglePassword = document.getElementById("toggle_password");
+  if (togglePassword) {
+    togglePassword.addEventListener("click", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("login_password");
+      if (!input) return;
+      input.type = input.type === "password" ? "text" : "password";
+    });
+  }
 
-    const openRestoreBtn = document.getElementById("openRestore");
+  // --- safe event bindings ---
+  const userAddressEl = document.getElementById("userAddress");
+  if (userAddressEl) userAddressEl.addEventListener("click", copyAddress);
+
+  const transferFundEl = document.getElementById("transferFund");
+  if (transferFundEl) transferFundEl.addEventListener("click", handler);
+
+  const openRestoreBtn = document.getElementById("openRestore");
   if (openRestoreBtn) openRestoreBtn.addEventListener("click", openRestore);
 
   const restoreCancelBtn = document.getElementById("restore_cancel");
@@ -15,81 +30,76 @@ document.addEventListener("DOMContentLoaded", function () {
   const restorePkBtn = document.getElementById("restore_privatekey_btn");
   if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
 
-  const backToLoginBtn = document.getElementById("back_to_login");
-  if (backToLoginBtn) backToLoginBtn.addEventListener("click", backToLogin);
-  
-  document
-    .getElementById("header_network")
-    .addEventListener("click", getOpenNetwork);
+  const headerNetworkEl = document.getElementById("header_network");
+  if (headerNetworkEl) headerNetworkEl.addEventListener("click", getOpenNetwork);
 
-  document
-    .getElementById("network_item")
-    .addEventListener("click", getSelectedNetwork);
+  const networkItemEl = document.getElementById("network_item");
+  if (networkItemEl) networkItemEl.addEventListener("click", getSelectedNetwork);
 
-  document.getElementById("add_network").addEventListener("click", setNetwork);
+  const addNetworkEl = document.getElementById("add_network");
+  if (addNetworkEl) addNetworkEl.addEventListener("click", setNetwork);
 
-  document.getElementById("loginAccount").addEventListener("click", loginUser);
+  const loginAccountEl = document.getElementById("loginAccount");
+  if (loginAccountEl) loginAccountEl.addEventListener("click", loginUser);
 
-  document
-    .getElementById("accountCreate")
-    .addEventListener("click", createUser);
+  const accountCreateEl = document.getElementById("accountCreate");
+  if (accountCreateEl) accountCreateEl.addEventListener("click", createUser);
 
-  document.getElementById("openCreate").addEventListener("click", openCreate);
+  const openCreateEl = document.getElementById("openCreate");
+  if (openCreateEl) openCreateEl.addEventListener("click", openCreate);
 
-  document.getElementById("sign_up").addEventListener("click", signUp);
-  document.getElementById("login_up").addEventListener("click", login);
-  document.getElementById("logout").addEventListener("click", logout);
+  const signUpEl = document.getElementById("sign_up");
+  if (signUpEl) signUpEl.addEventListener("click", signUp);
 
-  document
-    .getElementById("open_Transfer")
-    .addEventListener("click", openTransfer);
+  const loginUpEl = document.getElementById("login_up");
+  if (loginUpEl) loginUpEl.addEventListener("click", login);
 
-  document.getElementById("goBack").addEventListener("click", goBack);
+  const logoutEl = document.getElementById("logout");
+  if (logoutEl) logoutEl.addEventListener("click", logout);
 
-  document.getElementById("open_Import").addEventListener("click", openImport);
+  const openTransferEl = document.getElementById("open_Transfer");
+  if (openTransferEl) openTransferEl.addEventListener("click", openTransfer);
 
-  document
-    .getElementById("goBack_import")
-    .addEventListener("click", importGoBack);
+  const goBackEl = document.getElementById("goBack");
+  if (goBackEl) goBackEl.addEventListener("click", goBack);
 
-  document.getElementById("open_assets").addEventListener("click", openAssets);
+  const openImportEl = document.getElementById("open_Import");
+  if (openImportEl) openImportEl.addEventListener("click", openImport);
 
-  document
-    .getElementById("open_activity")
-    .addEventListener("click", openActivity);
+  const goBackImportEl = document.getElementById("goBack_import");
+  if (goBackImportEl) goBackImportEl.addEventListener("click", importGoBack);
 
-  document.getElementById("goHomePage").addEventListener("click", goHomePage);
+  const openAssetsEl = document.getElementById("open_assets");
+  if (openAssetsEl) openAssetsEl.addEventListener("click", openAssets);
 
-  document
-    .getElementById("openAccountImport")
-    .addEventListener("click", openImportModel);
+  const openActivityEl = document.getElementById("open_activity");
+  if (openActivityEl) openActivityEl.addEventListener("click", openActivity);
 
-  document
-    .getElementById("close_import_account")
-    .addEventListener("click", closeImportModel);
+  const goHomePageEl = document.getElementById("goHomePage");
+  if (goHomePageEl) goHomePageEl.addEventListener("click", goHomePage);
 
-  document.getElementById("add_new_token").addEventListener("click", addToken);
+  const backToLoginEl = document.getElementById("back_to_login");
+  if (backToLoginEl) backToLoginEl.addEventListener("click", backToLogin);
 
-  document
-    .getElementById("add_New_Account")
-    .addEventListener("click", addAcount);
+  const openAccountImportEl = document.getElementById("openAccountImport");
+  if (openAccountImportEl) openAccountImportEl.addEventListener("click", openImportModel);
 
-    const togglePassword = document.getElementById("toggle_password");
-if (togglePassword) {
-  togglePassword.addEventListener("click", (e) => {
-    e.preventDefault();
-    const input = document.getElementById("login_password");
-    if (!input) return;
-    input.type = input.type === "password" ? "text" : "password";
-  });
-}
+  const closeImportAccountEl = document.getElementById("close_import_account");
+  if (closeImportAccountEl) closeImportAccountEl.addEventListener("click", closeImportModel);
 
-const network = document.getElementById("network");
-if (network) {
-  network.addEventListener("click", (e) => {
-    if (e.target === network) network.style.display = "none";
-  });
-}
+  const addNewTokenEl = document.getElementById("add_new_token");
+  if (addNewTokenEl) addNewTokenEl.addEventListener("click", addToken);
+
+  const addNewAccountEl = document.getElementById("add_New_Account");
+  if (addNewAccountEl) addNewAccountEl.addEventListener("click", addAcount);
+
+  // close network overlay on background click
+  const network = document.getElementById("network");
+  if (network) {
+    network.addEventListener("click", (e) => {
+      if (e.target === network) network.style.display = "none";
+    });
+  }
 });
 
 //NETWORKS RPC URL
@@ -163,7 +173,7 @@ function checkBlance(address) {
 
     document.getElementById(
       "accountBlance"
-    ).innerHTML = `${balanceInEth} MATIC`;
+    ).innerHTML = `${balanceInEth} FA`;
     document.getElementById("userAddress").innerHTML = `${address.slice(
       0,
       15
@@ -436,11 +446,34 @@ function closeImportModel() {
 
 // ✅ LOCAL TOKENS
 function addToken() {
-  const address = document.getElementById("token_address").value;
-  const name = document.getElementById("token_name").value;
-  const symbol = document.getElementById("token_symbol").value;
+  const addressEl = document.getElementById("token_address");
+  const nameEl = document.getElementById("token_name");
+  const symbolEl = document.getElementById("token_symbol");
+
+  const address = (addressEl?.value || "").trim();
+  const name = (nameEl?.value || "").trim();
+  const symbol = (symbolEl?.value || "").trim();
+
+  if (!address || !name || !symbol) {
+    alert("Заполните token address, token name и token symbol");
+    return;
+  }
+
+  // простая проверка формата EVM-адреса (0x + 40 hex)
+  if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+    alert("Token address должен быть адресом формата 0x...");
+    return;
+  }
 
   const tokens = JSON.parse(localStorage.getItem("tokens") || "[]");
+
+  // защита от дублей по адресу
+  const exists = tokens.some((t) => (t.address || "").toLowerCase() === address.toLowerCase());
+  if (exists) {
+    alert("Этот токен уже добавлен");
+    return;
+  }
+
   tokens.push({ address, name, symbol });
   localStorage.setItem("tokens", JSON.stringify(tokens));
 
@@ -494,7 +527,7 @@ if (networkEl) networkEl.innerHTML = savedNetwork;
   tokens.forEach((token) => {
     elements += `
       <div class="assets_item">
-        <img class="assets_item_img" src="./assets/theblockchaincoders.png" alt="" />
+        <img class="assets_item_img" src="./assets/token.png" alt="" />
         <span>${token.address.slice(0, 15)}...</span>
         <span>${token.symbol}</span>
       </div>
