@@ -687,6 +687,19 @@ body {
   cursor: pointer;
 }
 
+.btn_secondary1{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid #0aa2b0;
+  background: #ffffff;
+  color: #0b7285;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
 .auth_or{
   display: flex;
   align-items: center;
@@ -893,5 +906,11 @@ body{
   color: #000000 !important;
 }
 
+/* make auth textarea look like inputs */
+.auth_field textarea.auth_input{
+  padding: 2;
+  margin: 0;
+  line-height: 1.3;
+}
 
 /* //CHECK BOX */
