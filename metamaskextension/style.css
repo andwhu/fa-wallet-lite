@@ -967,13 +967,9 @@ body{
   margin-top: 12px;   /* подберите 8–16px */
 }
 
-#transfer_form .auth_content{
-  transform: none;
-  padding-top: 16px;
-}
-
-#transfer_form #transferFund{
-  margin-top: 12px;
+/* Transfer: опустить стрелку "назад" ниже */
+#transfer_form .btn_back{
+  margin-top: 45px;   /* подбери: 10–24px */
 }
 
 /* //CHECK BOX */
