@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const restorePkBtn = document.getElementById("restore_privatekey_btn");
   if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
 
+  
   document
     .getElementById("header_network")
     .addEventListener("click", getOpenNetwork);
