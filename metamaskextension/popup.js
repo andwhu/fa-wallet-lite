@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const restorePkBtn = document.getElementById("restore_privatekey_btn");
   if (restorePkBtn) restorePkBtn.addEventListener("click", restoreByPrivateKey);
 
+  const backToLoginBtn = document.getElementById("back_to_login");
+  if (backToLoginBtn) backToLoginBtn.addEventListener("click", backToLogin);
   
   document
     .getElementById("header_network")
@@ -275,6 +277,22 @@ function openCreate() {
   document.getElementById("create_popUp").style.display = "block";
 }
 
+function backToLogin() {
+  // закрываем экран регистрации
+  const createPopUp = document.getElementById("create_popUp");
+  if (createPopUp) createPopUp.style.display = "none";
+
+  // открываем экран входа
+  const login = document.getElementById("LoginUser");
+  if (login) login.style.display = "block";
+
+  // (опционально) сбросить лоадер/форму на регистрации, если вы их прячете
+  const field = document.getElementById("field");
+  const center = document.getElementById("center");
+  if (field) field.style.display = "block";
+  if (center) center.style.display = "none";
+}
+
 // ✅ LOCAL SIGN UP
 function signUp() {
   const name = document.getElementById("sign_up_name").value;
@@ -378,8 +396,15 @@ function openAssets() {
 }
 
 function goHomePage() {
+  // закрыть регистрацию
   document.getElementById("create_popUp").style.display = "none";
-  document.getElementById("home").style.display = "block";
+
+  // открыть экран входа
+  document.getElementById("LoginUser").style.display = "block";
+
+  // на всякий случай: home прячем, чтобы не мигал/не перекрывал
+  const home = document.getElementById("home");
+  if (home) home.style.display = "none";
 }
 
 function openImportModel() {
