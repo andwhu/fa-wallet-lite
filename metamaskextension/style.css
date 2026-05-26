@@ -847,5 +847,51 @@ body{
 #network.network.is-open{
   display: flex !important;
 }
+/* Network modal: "Закрыть" button should look clickable */
+#add_network{
+  cursor: pointer;
+}
+
+#add_network:disabled{
+  cursor: not-allowed;
+}
+
+/* Networks: spacing for "Закрыть" like "ВОЙТИ" */
+#network #add_network{
+  margin-top: 14px !important;  /* расстояние от белой карточки */
+  cursor: pointer;
+}
+
+/* Force "Закрыть" to look exactly like .btn_primary */
+#network #add_network.btn_primary{
+  /* отступ от белой карточки */
+  margin-top: 14px !important;
+
+  /* перетираем всё, что приходит от .button3/.addStyle/старых правил */
+  width: 100% !important;
+  max-width: 520px;
+  padding: 14px 14px !important;
+  border-radius: 12px !important;
+  border: none !important;
+
+  background: linear-gradient(90deg, #0aa2b0 0%, #0b7285 100%) !important;
+  color: #ffffff !important;
+
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  cursor: pointer !important;
+}
+
+.input-icon-img{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex: 0 0 20px;
+}
+
+#network .network_finchainlab{
+  color: #000000 !important;
+}
+
 
 /* //CHECK BOX */
