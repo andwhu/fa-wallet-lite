@@ -64,15 +64,6 @@ body {
 }
 /* //NETWORK */
 
-.network {
-  display: none;
-  position: absolute;
-  background-color: #171717;
-  width: 100%;
-  right: 0;
-  text-align: center;
-}
-
 .network .addStyle {
   width: 80%;       
   padding: 1rem;    
@@ -733,75 +724,6 @@ body {
   opacity: 0.9;
 }
 
-/* ===== Network overlay modal (v1) ===== */
-#network.network{
-  display: none;
-  position: fixed !important;
-  inset: 0;                 /* top/right/bottom/left = 0 */
-  z-index: 99999;
-
-  background: rgba(15, 23, 42, 0.55);
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-/* белая карточка внутри overlay */
-#network.network .network_title{
-  margin-top: 64px;         /* чтобы визуально “не спорить” с header */
-  background: #fff;
-  border: none;
-  border-radius: 16px 16px 0 0;
-  padding: 14px 14px;
-}
-
-#network.network .network_title p{
-  margin: 0;
-  text-align: left;
-  color: #0f172a;
-  font-weight: 800;
-}
-
-/* список сетей */
-#network.network .network_list{
-  background: #fff;
-  border-radius: 0 0 16px 16px;
-  padding: 6px 0;
-  max-height: calc(100vh - 210px);
-  overflow: auto;
-}
-
-/* строка сети */
-#network.network .network_item{
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #eef2f7;
-  text-align: left;
-}
-
-#network.network .network_item:last-child{
-  border-bottom: none;
-}
-
-#network.network .network_item span{
-  color: #0f172a;
-  font-weight: 600;
-}
-
-/* иконки внутри network (чтобы были аккуратные) */
-#network.network .input-icon{
-  width: 18px;
-  height: 18px;
-  fill: #0aa2b0;
-}
-
-/* кнопка Add Network */
-#network.network #add_network{
-  width: 100%;
-  margin-top: 12px;
-  border-radius: 16px;
-}
 
 .auth_content{ transform: translateY(-45px); }
 
