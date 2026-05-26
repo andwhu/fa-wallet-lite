@@ -112,37 +112,45 @@
   </div>
 </div>
 
-<!-- //RESTORE WALLET -->
-<div id="restore_wallet" class="create_popUp" style="display:none;">
-  <div class="form">
-    <p class="restore_heading">Restore Wallet</p>
+<!-- //RESTORE WALLET (light) -->
+<div id="restore_wallet" class="auth_screen" style="display:none;">
+  <div class="auth_content">
+    <h1 class="auth_title">Восстановить кошелёк</h1>
 
-    <p style="margin-top:10px;">Seed phrase (12/24 words)</p>
-    <textarea
-      id="restore_mnemonic"
-      placeholder="enter seed phrase..."
-      style="width:100%; height:90px; resize:none;"
-    ></textarea>
+    <p class="auth_subtitle">Seed phrase (12/24 words)</p>
+    <label class="auth_field">
+      <img class="auth_icon_img" src="./assets/icon_lock.png" alt="" />
+      <textarea
+        id="restore_mnemonic"
+        class="auth_input"
+        placeholder="Введите seed phrase..."
+        style="height:90px; resize:none;"
+      ></textarea>
+    </label>
 
-    <button id="restore_mnemonic_btn" class="button3 connectWallet">
-      Restore by Seed Phrase
+    <button id="restore_mnemonic_btn" class="btn_primary">
+      Восстановить по Seed Phrase
     </button>
 
-    <p style="margin-top:16px;">Private key</p>
-    <input
-      id="restore_private_key"
-      type="text"
-      placeholder="0x..."
-      class="input-field"
-      style="width:100%;"
-    />
+    <div style="height:10px"></div>
 
-    <button id="restore_privatekey_btn" class="button3 connectWallet">
-      Restore by Private Key
+    <p class="auth_subtitle">Private key</p>
+    <label class="auth_field">
+      <img class="auth_icon_img" src="./assets/icon_lock.png" alt="" />
+      <input
+        id="restore_private_key"
+        type="text"
+        class="auth_input"
+        placeholder="0x..."
+      />
+    </label>
+
+    <button id="restore_privatekey_btn" class="btn_primary">
+      Восстановить по Private Key
     </button>
 
-    <button id="restore_cancel" class="button3 addStyle">
-      Cancel
+    <button id="restore_cancel" class="btn_secondary" style="margin-top:12px;">
+      НАЗАД
     </button>
   </div>
 </div>
@@ -215,7 +223,7 @@
     </div>
 
     <button id="sign_up" class="btn_primary">СОЗДАТЬ</button>
-    <button id="goHomePage" class="btn_secondary">НАЗАД</button>
+    <button id="back_to_login" class="btn_secondary1">НАЗАД</button>
 
     <!-- если хотите оставить блок с данными — можно ниже -->
     <div id="accountData" class="accountData"></div>
