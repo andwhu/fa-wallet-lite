@@ -84,7 +84,6 @@ if (togglePassword) {
 const network = document.getElementById("network");
 if (network) {
   network.addEventListener("click", (e) => {
-    // клик по тёмному фону — закрыть
     if (e.target === network) network.style.display = "none";
   });
 }
@@ -170,7 +169,8 @@ function checkBlance(address) {
 }
 
 function getOpenNetwork() {
-  document.getElementById("network").style.display = "block";
+  const network = document.getElementById("network");
+  if (network) network.style.display = "block";
 }
 
 function getSelectedNetwork(e) {
@@ -203,7 +203,8 @@ function getSelectedNetwork(e) {
 }
 
 function setNetwork() {
-  document.getElementById("network").style.display = "none";
+  const network = document.getElementById("network");
+  if (network) network.style.display = "none";
 }
 
 function loginUser() {
