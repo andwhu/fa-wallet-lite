@@ -295,10 +295,19 @@ function backToLogin() {
 
 // ✅ LOCAL SIGN UP
 function signUp() {
-  const name = document.getElementById("sign_up_name").value;
-  const email = document.getElementById("sign_up_email").value;
-  const password = document.getElementById("sign_up_password").value;
-  const passwordConfirm = document.getElementById("sign_up_passwordConfirm").value;
+  const name = document.getElementById("sign_up_name").value.trim();
+  const email = document.getElementById("sign_up_email").value.trim();
+  const password = document.getElementById("sign_up_password").value.trim();
+  const passwordConfirm = document.getElementById("sign_up_passwordConfirm").value.trim();
+
+if (!name || !email || !password || !passwordConfirm) {
+  alert("Заполните все поля");
+  return;
+}
+if (password !== passwordConfirm) {
+  alert("Пароли не совпадают");
+  return;
+}
 
   document.getElementById("field").style.display = "none";
   document.getElementById("center").style.display = "block";
@@ -335,11 +344,19 @@ function signUp() {
 
 // ✅ LOCAL LOGIN
 function login() {
+  
   document.getElementById("login_form").style.display = "none";
   document.getElementById("center").style.display = "block";
 
-  const email = document.getElementById("login_email").value;
-  const password = document.getElementById("login_password").value;
+  const email = document.getElementById("login_email").value.trim();
+const password = document.getElementById("login_password").value.trim();
+
+if (!email || !password) {
+  alert("Введите email и пароль");
+  document.getElementById("center").style.display = "none";
+  document.getElementById("login_form").style.display = "block";
+  return;
+}
 
   const user = JSON.parse(localStorage.getItem("user"));
 
