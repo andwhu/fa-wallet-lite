@@ -170,7 +170,7 @@ function checkBlance(address) {
 }
 
 function getOpenNetwork() {
-  document.getElementById("network")?.classList.add("is-open");
+  document.getElementById("network").style.display = "block";
 }
 
 function getSelectedNetwork(e) {
@@ -180,30 +180,30 @@ function getSelectedNetwork(e) {
   if (e.target.innerHTML === "Ethereum Mainnet") {
     providerURL = ETHEREUM;
     localStorage.setItem("ACTIVE_NETWORK", "Ethereum Mainnet");
-    document.getElementById("network")?.classList.add("is-open");
+    document.getElementById("network").style.display = "none";
   } else if (e.target.innerHTML === "Polygon Mainnet") {
     providerURL = POLYGON;
     localStorage.setItem("ACTIVE_NETWORK", "Polygon Mainnet");
-    document.getElementById("network")?.classList.add("is-open");
+    document.getElementById("network").style.display = "none";
   } else if (e.target.innerHTML === "Polygon Amoy") {
     providerURL = POLYGON_AMOY;
     localStorage.setItem("ACTIVE_NETWORK", "Polygon Amoy");
-    document.getElementById("network")?.classList.add("is-open");
+    document.getElementById("network").style.display = "none";
   } else if (e.target.innerHTML === "Sepolia test network") {
     providerURL = SEPOLIA_TEST;
     localStorage.setItem("ACTIVE_NETWORK", "Sepolia test network");
-    document.getElementById("network")?.classList.add("is-open");
+    document.getElementById("network").style.display = "none";
   } else if (e.target.innerHTML === "Finchainlab") {
     providerURL = FINCHAINLAB;
     localStorage.setItem("ACTIVE_NETWORK", "Finchainlab");
-    document.getElementById("network")?.classList.add("is-open");
+    document.getElementById("network").style.display = "none";
   }
 
   console.log(providerURL);
 }
 
 function setNetwork() {
-  document.getElementById("network")?.classList.remove("is-open");
+  document.getElementById("network").style.display = "none";
 }
 
 function loginUser() {
